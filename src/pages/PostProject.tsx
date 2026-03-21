@@ -230,7 +230,7 @@ const PostProject = () => {
 
                 {/* Submit */}
                 <div className="pt-4">
-                  <Button type="submit" className="w-full bg-gradient-cta hover:opacity-90 transition-opacity" size="lg">
+                  <Button type="submit" className="w-full bg-[linear-gradient(135deg,#6d28d9,#4f46e5,#7c3aed)] hover:opacity-90 transition-opacity" size="lg">
                     Post Project
                   </Button>
                   <p className="text-xs text-muted-foreground text-center mt-3">

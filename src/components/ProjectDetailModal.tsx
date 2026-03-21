@@ -116,7 +116,7 @@ export function ProjectDetailModal({ project, open, onClose }: ProjectDetailModa
 
           {/* Actions */}
           <div className="flex gap-3 pt-2">
-            <Button className="flex-1 bg-gradient-cta hover:opacity-90 transition-opacity">
+            <Button className="flex-1 bg-[linear-gradient(135deg,#6d28d9,#4f46e5,#7c3aed)] hover:opacity-90 transition-opacity">
               <UserPlus className="w-4 h-4 mr-2" />
               Request to Join
             </Button>

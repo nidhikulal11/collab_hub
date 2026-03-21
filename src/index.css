@@ -1,111 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 /* Project Collaboration Platform Design System */
 
 @layer base {
   :root {
-    --background: 220 20% 98%;
-    --foreground: 224 30% 15%;
+    /* Global dark design tokens */
+    --bg-base: #0a0a0f;
+    --bg-surface: #13131f;
+    --bg-elevated: #1a1a2e;
+    --bg-input: #1e1e30;
+    --text-primary: #e8e8f0;
+    --text-secondary: #a0a0b8;
+    --text-muted: #6b6b85;
+    --accent: #7c3aed;
+    --accent-soft: #a78bfa;
+    --accent-blue: #4f46e5;
+    --border-soft: rgba(255, 255, 255, 0.07);
+    --glow: 0 0 20px rgba(124, 58, 237, 0.3);
 
-    --card: 0 0% 100%;
-    --card-foreground: 224 30% 15%;
+    /* Tailwind semantic tokens mapped to dark theme */
+    --background: 240 25% 5%;
+    --foreground: 240 20% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 30% 15%;
+    --card: 240 26% 10%;
+    --card-foreground: 240 20% 92%;
 
-    --primary: 234 85% 55%;
+    --popover: 240 26% 10%;
+    --popover-foreground: 240 20% 92%;
+
+    --primary: 262 83% 58%; /* approx #7c3aed */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 94%;
-    --secondary-foreground: 224 30% 25%;
+    --secondary: 240 21% 15%;
+    --secondary-foreground: 240 20% 85%;
 
-    --muted: 220 15% 92%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 240 20% 20%;
+    --muted-foreground: 240 15% 60%;
 
-    --accent: 172 70% 45%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 234 85% 55%;
-
-    --radius: 0.75rem;
-
-    /* Custom colors for skills */
-    --skill-frontend: 200 90% 50%;
-    --skill-backend: 280 80% 55%;
-    --skill-design: 340 85% 60%;
-    --skill-mobile: 25 95% 55%;
-    --skill-data: 150 70% 45%;
-    --skill-devops: 45 95% 50%;
-    --skill-ai: 260 85% 60%;
-    --skill-other: 220 15% 55%;
-
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(234 85% 55%) 0%, hsl(280 80% 55%) 50%, hsl(340 85% 60%) 100%);
-    --gradient-card-hover: linear-gradient(180deg, hsl(234 85% 55% / 0.05) 0%, hsl(280 80% 55% / 0.05) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(234 85% 55%) 0%, hsl(260 85% 60%) 100%);
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px hsl(224 30% 15% / 0.04);
-    --shadow-md: 0 4px 12px hsl(224 30% 15% / 0.08);
-    --shadow-lg: 0 12px 32px hsl(224 30% 15% / 0.12);
-    --shadow-glow: 0 0 40px hsl(234 85% 55% / 0.2);
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 224 30% 8%;
-    --foreground: 220 15% 95%;
-
-    --card: 224 25% 12%;
-    --card-foreground: 220 15% 95%;
-
-    --popover: 224 25% 12%;
-    --popover-foreground: 220 15% 95%;
-
-    --primary: 234 85% 60%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 224 20% 18%;
-    --secondary-foreground: 220 15% 85%;
-
-    --muted: 224 20% 18%;
-    --muted-foreground: 220 10% 55%;
-
-    --accent: 172 70% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 224 20% 20%;
-    --input: 224 20% 20%;
-    --ring: 234 85% 60%;
+    --border: 240 10% 25%;
+    --input: 240 20% 20%;
+    --ring: 262 83% 58%;
 
-    --sidebar-background: 224 25% 10%;
-    --sidebar-foreground: 220 15% 85%;
-    --sidebar-primary: 234 85% 60%;
+    --radius: 0.75rem;
+
+    /* Custom colors for skills */
+    --skill-frontend: 222 84% 56%;
+    --skill-backend: 262 83% 58%;
+    --skill-design: 296 72% 60%;
+    --skill-mobile: 32 95% 55%;
+    --skill-data: 160 84% 40%;
+    --skill-devops: 45 95% 50%;
+    --skill-ai: 200 98% 39%;
+    --skill-other: 240 10% 60%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, #4f46e5 0%, #7c3aed 45%, #a78bfa 100%);
+    --gradient-card-hover: linear-gradient(180deg, rgba(124, 58, 237, 0.12) 0%, rgba(79, 70, 229, 0.05) 100%);
+    /* CTA gradient without cyan/blue tail */
+    --gradient-cta: linear-gradient(135deg, #6d28d9 0%, #4f46e5 50%, #7c3aed 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.6);
+    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.7);
+    --shadow-lg: 0 18px 45px rgba(15, 23, 42, 0.9);
+    --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.35);
+
+    --sidebar-background: 240 22% 6%;
+    --sidebar-foreground: 240 20% 92%;
+    --sidebar-primary: 262 83% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 224 20% 15%;
-    --sidebar-accent-foreground: 220 15% 95%;
-    --sidebar-border: 224 20% 18%;
-    --sidebar-ring: 234 85% 60%;
+    --sidebar-accent: 240 21% 15%;
+    --sidebar-accent-foreground: 240 20% 92%;
+    --sidebar-border: 240 10% 25%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+  /* Keep .dark mapping same as :root for always-dark experience */
+  .dark {
+    --background: 240 25% 5%;
+    --foreground: 240 20% 92%;
+    --card: 240 26% 10%;
+    --card-foreground: 240 20% 92%;
+    --popover: 240 26% 10%;
+    --popover-foreground: 240 20% 92%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 21% 15%;
+    --secondary-foreground: 240 20% 85%;
+    --muted: 240 20% 20%;
+    --muted-foreground: 240 15% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 10% 25%;
+    --input: 240 20% 20%;
+    --ring: 262 83% 58%;
+    --sidebar-background: 240 22% 6%;
+    --sidebar-foreground: 240 20% 92%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 21% 15%;
+    --sidebar-accent-foreground: 240 20% 92%;
+    --sidebar-border: 240 10% 25%;
+    --sidebar-ring: 262 83% 58%;
   }
 }
 
