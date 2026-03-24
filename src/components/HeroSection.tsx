@@ -1,8 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Users, Lightbulb, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useStats } from '@/context/StatsContext';
 
 export function HeroSection() {
+  const { projectsCount, studentsCount, teamsFormedCount } = useStats();
+
   return (
     <section className="relative overflow-hidden py-20 md:py-32">
       {/* Background decoration */}
@@ -13,14 +16,9 @@ export function HeroSection() {
 
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 animate-slide-up">
-            <Zap className="w-4 h-4" />
-            Find your dream team today
-          </div>
-          
-          <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight mb-6 animate-slide-up">
+          <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-slate-200 mb-6 animate-slide-up">
             Turn Your Ideas Into{' '}
-            <span className="text-gradient">Reality</span>
+            <span>Reality</span>
             {' '}With the Right Team
           </h1>
           
@@ -30,13 +28,22 @@ export function HeroSection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-            <Button asChild size="lg" className="bg-gradient-cta hover:opacity-90 transition-opacity shadow-glow">
+            <Button
+              asChild
+              size="lg"
+              className="px-8 rounded-full text-sm md:text-base font-semibold text-white bg-primary shadow-[0_0_14px_rgba(88,28,135,0.45)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-[0_0_22px_rgba(88,28,135,0.6)]"
+            >
               <Link to="/projects">
                 Browse Projects
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-[rgba(148,163,184,0.5)] bg-black/20 hover:bg-[rgba(24,24,38,0.85)] text-slate-100 rounded-full backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[rgba(167,139,250,0.9)] hover:shadow-[0_0_18px_rgba(167,139,250,0.45)]"
+            >
               <Link to="/post-project">
                 Post Your Idea
               </Link>
@@ -46,15 +53,15 @@ export function HeroSection() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-border/50">
             <div className="text-center">
-              <div className="font-display text-3xl md:text-4xl font-bold text-primary">500+</div>
+              <div className="font-display text-3xl md:text-4xl font-bold text-primary">{projectsCount}+</div>
               <div className="text-sm text-muted-foreground mt-1">Active Projects</div>
             </div>
             <div className="text-center">
-              <div className="font-display text-3xl md:text-4xl font-bold text-primary">2,000+</div>
+              <div className="font-display text-3xl md:text-4xl font-bold text-primary">{studentsCount}+</div>
               <div className="text-sm text-muted-foreground mt-1">Students</div>
             </div>
             <div className="text-center">
-              <div className="font-display text-3xl md:text-4xl font-bold text-primary">150+</div>
+              <div className="font-display text-3xl md:text-4xl font-bold text-primary">{teamsFormedCount}+</div>
               <div className="text-sm text-muted-foreground mt-1">Teams Formed</div>
             </div>
           </div>

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/50 bg-muted/30 py-12">
+    <footer className="border-t border-border/50 bg-muted/30 py-8 md:py-10">
       <div className="container">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-4 gap-6 md:gap-8">
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl mb-4">
+            <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl mb-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-cta flex items-center justify-center">
                 <Rocket className="w-4 h-4 text-primary-foreground" />
               </div>
@@ -37,7 +37,7 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-border/50 mt-8 pt-8 text-center text-sm text-muted-foreground">
+        <div className="border-t border-border/50 mt-6 md:mt-8 pt-6 md:pt-8 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} CollabHub. Built for students, by students.
         </div>
       </div>

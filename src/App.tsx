@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Projects from "./pages/Projects";
 import PostProject from "./pages/PostProject";
 import NotFound from "./pages/NotFound";
+import { StatsProvider } from "./context/StatsContext";
 
 const queryClient = new QueryClient();
 
@@ -15,15 +16,17 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/post-project" element={<PostProject />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <StatsProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/post-project" element={<PostProject />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </StatsProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

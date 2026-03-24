@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Users, Calendar, MessageCircle, UserPlus } from 'lucide-react';
+import { useStats } from '@/context/StatsContext';
 
 interface ProjectDetailModalProps {
   project: Project | null;
@@ -21,6 +22,7 @@ export function ProjectDetailModal({ project, open, onClose }: ProjectDetailModa
   if (!project) return null;
 
   const spotsLeft = project.maxTeamSize - project.teamMembers.length;
+  const { recordStudentJoined } = useStats();
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
@@ -116,7 +118,10 @@ export function ProjectDetailModal({ project, open, onClose }: ProjectDetailModa
 
           {/* Actions */}
           <div className="flex gap-3 pt-2">
-            <Button className="flex-1 bg-[linear-gradient(135deg,#6d28d9,#4f46e5,#7c3aed)] hover:opacity-90 transition-opacity">
+            <Button
+              className="flex-1 bg-primary hover:bg-primary/90 transition-colors"
+              onClick={recordStudentJoined}
+            >
               <UserPlus className="w-4 h-4 mr-2" />
               Request to Join
             </Button>

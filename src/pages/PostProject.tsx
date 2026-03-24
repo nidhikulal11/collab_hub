@@ -18,6 +18,7 @@ import { Skill } from '@/types/project';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Rocket, Plus, X } from 'lucide-react';
 import { toast } from 'sonner';
+import { useStats } from '@/context/StatsContext';
 
 const categories = [
   'AI & Machine Learning',
@@ -33,6 +34,7 @@ const categories = [
 ];
 
 const PostProject = () => {
+  const { recordProjectCreated, recordStudentJoined } = useStats();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -68,6 +70,10 @@ const PostProject = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // In a real app this would save to the database.
+    // For now, we update the shared stats so the homepage numbers react immediately.
+    recordProjectCreated();
+    recordStudentJoined();
     toast.success('Project posted successfully! (Demo only)', {
       description: 'In a full version, this would save to the database.',
     });
@@ -159,31 +165,25 @@ const PostProject = () => {
                   {selectedSkills.length > 0 && (
                     <div className="flex flex-wrap gap-2 p-3 rounded-lg bg-muted/50">
                       {selectedSkills.map((skill) => (
-                        <button
+                        <SkillBadge
                           key={skill.name}
-                          type="button"
+                          skill={skill}
+                          size="sm"
                           onClick={() => handleSkillToggle(skill)}
-                          className="group"
-                        >
-                          <SkillBadge skill={skill} />
-                        </button>
+                          selected
+                        />
                       ))}
                     </div>
                   )}
                   <div className="flex flex-wrap gap-2 p-4 rounded-lg border border-dashed border-border">
                     {allSkills.map((skill) => (
-                      <button
+                      <SkillBadge
                         key={skill.name}
-                        type="button"
+                        skill={skill}
+                        size="sm"
                         onClick={() => handleSkillToggle(skill)}
-                        className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
-                          selectedSkills.some(s => s.name === skill.name)
-                            ? 'bg-primary text-primary-foreground'
-                            : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                        }`}
-                      >
-                        {skill.name}
-                      </button>
+                        selected={selectedSkills.some(s => s.name === skill.name)}
+                      />
                     ))}
                   </div>
                 </div>
@@ -230,7 +230,11 @@ const PostProject = () => {
 
                 {/* Submit */}
                 <div className="pt-4">
-                  <Button type="submit" className="w-full bg-[linear-gradient(135deg,#6d28d9,#4f46e5,#7c3aed)] hover:opacity-90 transition-opacity" size="lg">
+                  <Button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-full shadow-[0_0_14px_rgba(88,28,135,0.45)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(88,28,135,0.6)] hover:scale-[1.03]"
+                    size="lg"
+                  >
                     Post Project
                   </Button>
                   <p className="text-xs text-muted-foreground text-center mt-3">

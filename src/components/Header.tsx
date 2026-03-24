@@ -16,7 +16,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[color:var(--border-soft)] bg-[rgba(10,10,20,0.85)] backdrop-blur-2xl shadow-sm">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 font-display font-bold text-xl">
           <div className="w-8 h-8 rounded-lg bg-[linear-gradient(135deg,#4f46e5,#7c3aed)] flex items-center justify-center">
             <Rocket className="w-4 h-4 text-primary-foreground" />
@@ -25,7 +25,7 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -44,15 +44,15 @@ export function Header() {
 
         <div className="hidden md:flex items-center gap-3">
           <Button
-            variant="ghost"
+            variant="outline"
             size="sm"
-            className="text-[color:var(--text-secondary)] hover:text-[color:var(--text-primary)] hover:bg-white/5 rounded-full transition-colors"
+            className="border-[rgba(148,163,184,0.5)] bg-black/20 text-slate-100 rounded-full backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-[rgba(24,24,38,0.85)] hover:border-[rgba(167,139,250,0.9)] hover:shadow-[0_0_18px_rgba(167,139,250,0.45)]"
           >
             Sign In
           </Button>
           <Button
             size="sm"
-            className="rounded-full px-5 py-2 text-sm font-semibold text-white shadow-[var(--glow)] bg-[linear-gradient(135deg,#6d28d9,#4f46e5)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(129,140,248,0.75)]"
+            className="rounded-full px-5 py-2 text-sm font-semibold text-white shadow-[var(--glow)] bg-primary hover:bg-primary/90 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(129,140,248,0.75)]"
           >
             Get Started
           </Button>
@@ -98,7 +98,7 @@ export function Header() {
               </Button>
               <Button
                 size="sm"
-                className="flex-1 rounded-full bg-[linear-gradient(135deg,#6d28d9,#4f46e5)] text-white shadow-[var(--glow)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(129,140,248,0.75)]"
+                className="flex-1 rounded-full bg-primary hover:bg-primary/90 text-white shadow-[var(--glow)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(129,140,248,0.75)]"
               >
                 Get Started
               </Button>

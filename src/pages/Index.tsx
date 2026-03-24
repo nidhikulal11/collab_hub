@@ -49,10 +49,11 @@ const Index = () => {
   asChild
   size="lg"
   className="px-8 rounded-full text-sm md:text-base font-semibold text-white 
-  bg-[linear-gradient(135deg,#7c3aed,#6366f1)] 
+  bg-primary 
   shadow-[0_0_12px_rgba(124,58,237,0.25)] 
   transition-all duration-300 ease-out 
   hover:-translate-y-0.5 
+  hover:bg-primary/90 
   hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]"
 >
                   <Link to="/projects">
@@ -158,7 +159,7 @@ const Index = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="px-8 rounded-full text-sm md:text-base font-semibold text-white bg-[linear-gradient(135deg,#6d28d9,#4f46e5)] shadow-[0_0_14px_rgba(88,28,135,0.45)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_0_22px_rgba(88,28,135,0.6)]"
+                  className="px-8 rounded-full text-sm md:text-base font-semibold text-white bg-primary shadow-[0_0_14px_rgba(88,28,135,0.45)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-[0_0_22px_rgba(88,28,135,0.6)]"
                 >
                   <Link to="/post-project">
                     Post Your Project

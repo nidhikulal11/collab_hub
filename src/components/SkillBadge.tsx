@@ -28,7 +28,7 @@ export function SkillBadge({ skill, size = 'md', onClick, selected }: SkillBadge
         categoryStyles[skill.category],
         size === 'sm' ? 'px-2 py-0.5 text-xs' : 'px-3 py-1 text-sm',
         onClick && 'cursor-pointer hover:scale-105',
-        selected && 'ring-2 ring-offset-2 ring-primary'
+        selected && 'scale-105 shadow-[0_0_14px_rgba(167,139,250,0.55)]'
       )}
     >
       {skill.name}
