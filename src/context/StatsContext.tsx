@@ -24,7 +24,9 @@ function calculateInitialStats() {
   const studentsCount = memberIds.size;
 
   // Treat each project that has at least one team member as a "formed team"
-  const teamsFormedCount = mockProjects.filter((project) => project.teamMembers.length > 0).length;
+  const teamsFormedCount = mockProjects.filter(
+    (project) => project.teamMembers.length > 0
+  ).length;
 
   return { projectsCount, studentsCount, teamsFormedCount };
 }
@@ -38,7 +40,7 @@ export function StatsProvider({ children }: { children: ReactNode }) {
 
   const recordProjectCreated = () => {
     setProjectsCount((prev) => prev + 1);
-    setTeamsFormedCount((prev) => prev + 1);
+    // ❌ Removed incorrect teamsFormedCount increment
   };
 
   const recordStudentJoined = () => {
@@ -53,7 +55,11 @@ export function StatsProvider({ children }: { children: ReactNode }) {
     recordStudentJoined,
   };
 
-  return <StatsContext.Provider value={value}>{children}</StatsContext.Provider>;
+  return (
+    <StatsContext.Provider value={value}>
+      {children}
+    </StatsContext.Provider>
+  );
 }
 
 export function useStats() {
